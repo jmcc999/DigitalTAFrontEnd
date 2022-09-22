@@ -8,7 +8,9 @@ class Square extends React.Component {
     render() {
 
         return (
-            <div>
+            <div id="squareDiv">
+
+                {/* gets the day variable sent from the month component  */}
                 {this.props.day}
             </div>
         );
