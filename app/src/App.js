@@ -1,11 +1,11 @@
 import './App.css';
-import Square from './Square.js'
+import Month from './Month.js'
+
 
 function App() {
   return (
-   <div>
-    <Square/>
-    <Square/>
+    <div>
+     <Month/>
     </div>
   );
 }
