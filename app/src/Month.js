@@ -10,7 +10,7 @@ class Month extends React.Component {
         super(props);
 
         this.state = {
-            startDay : 1, //whatever the starting day of the month is (1 for sunday)
+            startDay : 3, //whatever the starting day of the month is (1 for sunday)
             length : 30 //Number of days in the month
         }
     }
@@ -28,33 +28,36 @@ class Month extends React.Component {
         let monthRow5 = [];
         
         // //loop over the number of days in the month starting at the first day of the month
-        for (let i = this.state.startDay; i <= this.state.length + this.state.startDay - 1; i++) {
+        for (let i = 1; i <= this.state.length + this.state.startDay - 1; i++) {
 
             //Only 7 days go into a week
+            if (i < this.state.startDay) {
+                monthRow1.push("")
+            }
 
             //If it is the first time through the while loop
-            if (i < 8) {
-                monthRow1.push(<Square key = {i}/>)
+            if (i < 8 && i >= this.state.startDay) {
+                monthRow1.push(<Square day = {i + 1 - this.state.startDay}/>)
             }
 
             //If it is the second time through the while loop
             if (i < 15 && i > 7) {
-                monthRow2.push(<Square key = {i}/>)
+                monthRow2.push(<Square day = {i + 1 - this.state.startDay}/>)
             }
 
             //If it is the third time through the while loop
             if (i > 14 && i < 22) {
-                monthRow3.push(<Square key = {i}/>)
+                monthRow3.push(<Square day = {i + 1 - this.state.startDay}/>)
             }
 
             //If it is the fourth time through the while loop
             if (i > 21 && i < 29) {
-                monthRow4.push(<Square  key = {i}/>)
+                monthRow4.push(<Square  day = {i + 1 - this.state.startDay}/>)
             }
 
             //If it is the fifth time through the while loop
             if (i > 28) {
-                monthRow5.push(<Square key = {i}/>)
+                monthRow5.push(<Square day = {i + 1 - this.state.startDay}/>)
             }
         }
 
