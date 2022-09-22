@@ -32,42 +32,163 @@ class Month extends React.Component {
 
             //Only 7 days go into a week
 
-            //If it it the first time through the while loop
+            //If it is the first time through the while loop
             if (i < 8) {
                 monthRow1.push(<Square key = {i}/>)
             }
 
-            //If it it the second time through the while loop
+            //If it is the second time through the while loop
             if (i < 15 && i > 7) {
                 monthRow2.push(<Square key = {i}/>)
             }
 
-            //If it it the third time through the while loop
+            //If it is the third time through the while loop
             if (i > 14 && i < 22) {
                 monthRow3.push(<Square key = {i}/>)
             }
 
-            //If it it the fourth time through the while loop
+            //If it is the fourth time through the while loop
             if (i > 21 && i < 29) {
-                monthRow4.push(<Square key = {i}/>)
+                monthRow4.push(<Square  key = {i}/>)
             }
 
-            //If it it the fifth time through the while loop
+            //If it is the fifth time through the while loop
             if (i > 28) {
                 monthRow5.push(<Square key = {i}/>)
             }
         }
 
         return (
-            <div>
                 <div>
-                   {monthRow1}<br/>
-                   {monthRow2}<br/>
-                   {monthRow3}<br/>
-                   {monthRow4}<br/>
-                   {monthRow5}<br/>
+
+                    {/* table that hold calendar */}
+                    <table>
+                        {/* 1st row */}
+                        <tr>
+                            <td>
+                                {monthRow1[0]}    
+                            </td>    
+                            <td>
+                                {monthRow1[1]}
+                            </td>
+                            <td>
+                                {monthRow1[2]}
+                            </td>
+                            <td>
+                                {monthRow1[3]}
+                            </td>
+                            <td>
+                                {monthRow1[4]}
+                            </td>
+                            <td>
+                                {monthRow1[5]}
+                            </td>
+                            <td>
+                                {monthRow1[6]}
+                            </td>
+                        </tr>
+
+                        {/* 2nd row */}
+                        <tr>
+                            <td>
+                                {monthRow2[0]}    
+                            </td>    
+                            <td>
+                                {monthRow2[1]}
+                            </td>
+                            <td>
+                                {monthRow2[2]}
+                            </td>
+                            <td>
+                                {monthRow2[3]}
+                            </td>
+                            <td>
+                                {monthRow2[4]}
+                            </td>
+                            <td>
+                                {monthRow2[5]}
+                            </td>
+                            <td>
+                                {monthRow2[6]}
+                            </td>
+                        </tr>
+
+                        {/* 3rd row */}
+                        <tr>
+                            <td>
+                                {monthRow3[0]}    
+                            </td>    
+                            <td>
+                                {monthRow3[1]}
+                            </td>
+                            <td>
+                                {monthRow3[2]}
+                            </td>
+                            <td>
+                                {monthRow3[3]}
+                            </td>
+                            <td>
+                                {monthRow3[4]}
+                            </td>
+                            <td>
+                                {monthRow3[5]}
+                            </td>
+                            <td>
+                                {monthRow3[6]}
+                            </td>
+                        </tr>
+
+                        {/* 4th row */}
+                        <tr>
+                            <td>
+                                {monthRow4[0]}    
+                            </td>    
+                            <td>
+                                {monthRow4[1]}
+                            </td>
+                            <td>
+                                {monthRow4[2]}
+                            </td>
+                            <td>
+                                {monthRow4[3]}
+                            </td>
+                            <td>
+                                {monthRow4[4]}
+                            </td>
+                            <td>
+                                {monthRow4[5]}
+                            </td>
+                            <td>
+                                {monthRow4[6]}
+                            </td>
+                        </tr>
+
+                        {/* 5th row */}
+                        <tr>
+                            <td>
+                                {monthRow5[0]}    
+                            </td>    
+                            <td>
+                                {monthRow5[1]}
+                            </td>
+                            <td>
+                                {monthRow5[2]}
+                            </td>
+                            <td>
+                                {monthRow5[3]}
+                            </td>
+                            <td>
+                                {monthRow5[4]}
+                            </td>
+                            <td>
+                                {monthRow5[5]}
+                            </td>
+                            <td>
+                                {monthRow5[6]}
+                            </td>
+                        </tr>
+                   </table>
                 </div>
-            </div>
         );
     }
 }
