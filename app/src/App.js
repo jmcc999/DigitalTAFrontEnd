@@ -5,7 +5,7 @@ import Month from './Month.js'
 function App() {
   return (
     <div>
-     <Month startDay="4" length="31"/>
+     <Month startDay="3" length="28"/>
     </div>
   );
 }
