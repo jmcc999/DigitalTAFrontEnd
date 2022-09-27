@@ -1,6 +1,6 @@
 import React from "react";
 
-class MonthDropdown extends React.PureComponent {
+class MonthDropdown extends React.Component {
     state = {
         options : [
             {
@@ -10,25 +10,30 @@ class MonthDropdown extends React.PureComponent {
                     length: 31
                 }
             },
-            {}
+            {
+                name: 'February',
+                value: {
+                    startDay: 2,
+                    length: 28
+                }
+            }
         ],
         value: 'Pick a month',
     }
 
     handleChange = (event) => {
         this.setState({value: event.target.value})
+        console.log(event.target.value)
+        this.props.callbackFoo(this.state.value.startDay,this.state.value.length)
     }
 
     render() {
-        const {options, value} = this.state
+        const {options, val} = this.state
 
         return (
-            <select onChange={this.handleChange} value={value}>
-                {options.map(item => (
-                    <option key={item.value} value= {item.value}>
-                        {item.name}
-                    </option>
-                ))}
+            <select onChange={(event) => this.handleChange(event)} name={val} value={val}>
+                <option value={1} name={options[0].name}>{options[0].name}</option>
+                <option value={2} name={options[1].name}>{options[1].name}</option>
             </select>
         )
     }
