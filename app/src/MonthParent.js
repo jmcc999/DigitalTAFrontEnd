@@ -10,19 +10,19 @@ class MonthParent extends React.Component {
         length: '30'
     }
 
-    callbackFoo = (startDay,length) => {
+    callbackFoo = (firstDay,duration) => {
         this.setState({
-          startDay: startDay,
-          length: length
+          startDay: firstDay,
+          length: duration
         })
-        console.log('ran')
+        console.log(firstDay)
     }
 
     render() {
         return (
             <div>
             <Month startDay={this.state.startDay} length={this.state.length}/>
-            <MonthDropdown callbackFoo={() => this.callbackFoo()}/>
+            <MonthDropdown callbackFoo={(startDay,length) => this.callbackFoo(startDay,length)}/>
             </div>
         );
     }      
