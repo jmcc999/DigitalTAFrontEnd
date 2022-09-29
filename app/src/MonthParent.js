@@ -6,8 +6,8 @@ import MonthDropdown from './MonthDropdown';
 class MonthParent extends React.Component {
 
     state = {
-        startDay: '3',
-        length: '30'
+        startDay: '2',
+        length: '31'
     }
 
     callbackFoo = (firstDay,duration) => {
