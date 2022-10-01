@@ -10,7 +10,7 @@ class Subject extends Component {
   render() {
     return (
         <div className="subjectContainer">
-          <div classname="subjectContents">
+          <div>
             <h2 className="subjectName">Subject</h2>
             <h2 className="lessonTitle">Lesson Title</h2>
             <h3 className="objective">Objective</h3>
