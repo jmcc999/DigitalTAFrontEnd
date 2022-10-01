@@ -8,27 +8,36 @@ class MonthDropdown extends React.Component {
             options : [
                 {
                     name: 'January',
-                    value: ['2','31']
+                    startDay: 5,
+                    length: 31
                 },
                 {
                     name: 'February',
-                    value: ['6','28']   
-                }
+                    startDay: 2,
+                    length: 28  
+                },
+                // {
+                //     name: 'March',
+                //     value: [((this.state.options.value[1] % 7) + this.state.value[0]),'31']   
+                // },
+                // {
+                //     name: 'April',
+                //     value: [((this.state.options.value[1] % 7) + this.state.value[0]),'30']   
+                // },
             ],
             value: '?'
         }
         this.handleChange = this.handleChange.bind(this)
     }
     
-    handleChange = (event) => {
-        this.setState({value: [event.target.value[0],(event.target.value[2]+event.target.value[3])]})
-        this.props.callbackFoo(this.state.value[0],this.state.value[1])
-        console.log(this.state.value[1])
+    componentDidMount() {
+        console.log('mounted')
     }
 
-    componentDidMount() {
-       this.setState({value: ['5','29']})
-       console.log('mounted')
+    handleChange = (event) => {
+        this.setState({value: [event.target.value]})
+        this.props.callbackFoo(this.state.value[0],(this.state.value[2] + this.state.value[3]))
+        console.log(this.state.value)
     }
 
     render() {
@@ -36,8 +45,10 @@ class MonthDropdown extends React.Component {
 
         return (
             <select onChange={(event) => this.handleChange(event)} name={val} value={val}>
-                <option value={options[0].value} name={options[0].name}>{options[0].name}</option>
-                <option value={options[1].value} name={options[1].name}>{options[1].name}</option>
+                <option value={[options[0].startDay,options[0].length]} name={options[0].name}>{options[0].name}</option>
+                <option value={[options[1].startDay,options[1].length]} name={options[1].name}>{options[1].name}</option>
+                {/* <option value={options[2].value} name={options[2].name}>{options[2].name}</option>
+                <option value={options[3].value} name={options[3].name}>{options[3].name}</option> */}
             </select>
         )
     }

@@ -10,12 +10,12 @@ class MonthParent extends React.Component {
         length: '31'
     }
 
-    callbackFoo = (firstDay,duration) => {
+    callbackFoo = (value) => {
         this.setState({
-          startDay: firstDay,
-          length: duration
+          startDay: value[0],
+          length: value[2] + value[3]
         })
-        console.log(firstDay)
+        console.log(value[2])
     }
 
     render() {
