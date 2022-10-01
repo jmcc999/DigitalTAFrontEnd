@@ -6,7 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #E4E2FF;
-  
 }
 
 code {
@@ -14,16 +13,26 @@ code {
     monospace;
 }
 
-.subject {
+.subjectContainer {
   background-color: white;
   border: 1px solid purple;
   border-radius: 15px;
-  margin: 50px;
-  padding: 80px;
-  width: 250px;
+  margin: 70px;
+  padding: 30px;
+  width: 300px;
   display: inline-block;
 }
-/*index subject tabs */
+/*top and bottom index container tabs */
+.top{
+display: flex;
+justify-content:center
+}
+.bottom{
+display: flex;
+justify-content:center
+}
+
+/*index subject content tabs */
 .subjectName {
   color: grey;
   font-weight:500;
@@ -42,7 +51,14 @@ code {
 .createLesson { /*button*/
   background-color: #1F157B;
   color: white;
+  font-weight:900;
+  font-size: 20px;
   border-radius: 30px;
   height: 50px;
   width: 90%;
+  cursor: pointer;
+}
+.createLesson:hover{
+  -webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
 }

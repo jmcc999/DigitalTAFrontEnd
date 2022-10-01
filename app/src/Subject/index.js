@@ -9,13 +9,14 @@ class Subject extends Component {
 
   render() {
     return (
-      
-        <div className="subject">
+        <div className="subjectContainer">
+          <div classname="subjectContents">
             <h2 className="subjectName">Subject</h2>
             <h2 className="lessonTitle">Lesson Title</h2>
             <h3 className="objective">Objective</h3>
             <h3 className="lessonType">Lesson Type</h3>
             <input type="button" value="Create Lesson" className="createLesson"/>
+          </div>
         </div>
       
     )

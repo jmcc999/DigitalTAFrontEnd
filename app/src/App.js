@@ -14,13 +14,18 @@ class App extends Component {
         <div className="dateContainer">
           <div id= "date" className="date">Date</div>
         </div>
-          <Subject name ={''}/>
-          <Subject name ={''}/>
-          <Subject name ={''}/>
-          <Subject name ={''}/>
-          <Subject name ={''}/>
-          <Subject name ={''}/>
-        
+        <div>
+          <div className="top"> {/* top half of index subject tabs */}
+              <Subject name ={''}/>
+              <Subject name ={''}/>
+              <Subject name ={''}/>
+          </div> 
+          <div className="bottom"> {/* bottom half of index subject tabs*/}
+              <Subject name ={''}/>
+              <Subject name ={''}/>
+              <Subject name ={''}/>
+          </div>   
+        </div>
      </div>
     );
   }
