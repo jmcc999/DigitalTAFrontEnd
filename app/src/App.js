@@ -8,7 +8,7 @@ class App extends Component {
     return (
      <div id="idxContent">
         <div id="nav">
-          <div id="logo"><img src={logo} alt="Digital TA Logo" /></div>
+          <div id="logo"><img src={logo} alt="Digital TA Logo" className="logo"/></div>
         </div>
         <div className="dateContainer">
           <div id= "date" className="date">Date</div>
