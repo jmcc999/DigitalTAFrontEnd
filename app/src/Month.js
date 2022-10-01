@@ -15,6 +15,7 @@ class Month extends React.Component {
         let monthRow3 = [];
         let monthRow4 = [];
         let monthRow5 = [];
+        let monthRow6 = [];
         
         // //loop over the number of days in the month starting at the first day of the month
         for (let i = 1; i <= parseInt(this.props.length) + parseInt(this.props.startDay) - 1; i++) {
@@ -47,6 +48,9 @@ class Month extends React.Component {
             //If it is the fifth time through the while loop
             if (i > 28) {
                 monthRow5.push(<Square day = {i + 1 - parseInt(this.props.startDay)}/>)
+                if (monthRow5.length > 7) {
+                    monthRow6.push(<Square day = {i + 1 - parseInt(this.props.startDay)}/>)
+                }
             }
         }
 
@@ -178,6 +182,32 @@ class Month extends React.Component {
                             </td>
                             <td>
                                 {monthRow5[6]}
+                            </td>
+                        </tr>
+
+
+                        {/* 6th row */}
+                        <tr>
+                            <td>
+                                {monthRow6[0]}    
+                            </td>    
+                            <td>
+                                {monthRow6[1]}
+                            </td>
+                            <td>
+                                {monthRow6[2]}
+                            </td>
+                            <td>
+                                {monthRow6[3]}
+                            </td>
+                            <td>
+                                {monthRow6[4]}
+                            </td>
+                            <td>
+                                {monthRow6[5]}
+                            </td>
+                            <td>
+                                {monthRow6[6]}
                             </td>
                         </tr>
                     </tbody>
