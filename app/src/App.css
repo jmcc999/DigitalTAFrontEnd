@@ -1,5 +1,5 @@
 
-.dateContainer {
+.dateContainer {/* holds date information */
   border-radius: 50px;
   background-color: #FFCB8F;
   height: 80px;
@@ -8,11 +8,11 @@
   justify-content: center;
   align-items: center;
 }
-.date {
+.date {/* the date */
   color: white;
   font-weight: bold; 
 }
-.logo {
+.logo {/* logo for all pages*/
   height: 5%;
   width: 10%;
 }

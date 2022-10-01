@@ -1,3 +1,4 @@
+/* google fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Open+Sans:wght@300;400;500;700&display=swap');
 
 body {
@@ -13,7 +14,7 @@ code {
     monospace;
 }
 
-.subjectContainer {
+.subjectContainer {/* lesson plan tabs on index page */
   background-color: white;
   border: 1px solid purple;
   border-radius: 15px;
@@ -32,7 +33,7 @@ display: flex;
 justify-content:center
 }
 
-/*index subject content tabs */
+/*index content tabs text */
 .subjectName {
   color: grey;
   font-weight:500;
@@ -60,7 +61,7 @@ justify-content:center
 }
 .createLesson:hover{
   -webkit-transform: translateY(-1px);
-	transform: translateY(-1px);
+	transform: translateY(-2px);
 }
 
 /*Responsive design */

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom/client';
 import '../index.css';
+import ReactDOM from 'react-dom/client'; 
 
 class Subject extends Component {
   /* constructor() {
@@ -9,8 +9,8 @@ class Subject extends Component {
 
   render() {
     return (
-        <div className="subjectContainer">
-          <div>
+        <div className="subjectContainer"> {/* each individual subject tab*/}
+          <div>{/* container that holds the text contents*/}
             <h2 className="subjectName">Subject</h2>
             <h2 className="lessonTitle">Lesson Title</h2>
             <h3 className="objective">Objective</h3>
