@@ -11,5 +11,8 @@
 .date {
   color: white;
   font-weight: bold; 
-  
+}
+.logo {
+  height: 5%;
+  width: 10%;
 }
