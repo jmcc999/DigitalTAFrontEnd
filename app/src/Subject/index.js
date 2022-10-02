@@ -9,6 +9,7 @@ class Subject extends Component {
 
   render() {
     return (
+     
         <div className="subjectContainer"> {/* each individual subject tab*/}
           <div>{/* container that holds the text contents*/}
             <h2 className="subjectName">Subject</h2>
