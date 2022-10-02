@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
      <div id="idxContent"> {/* large parent div that holds all content of index page */}
-        <div id="nav"> {/* holds logo */}
+        <div id="nav" className="nav"> {/* holds logo */}
           <div><a href="./Subject/calender.js" id="logo"><img src={logo} alt="Digital TA Logo" className="logo"/></a></div> {/* logo png source */}
         </div>
         <div className="dateContainer"> {/* container that holds the date */}
