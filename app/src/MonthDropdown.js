@@ -7,7 +7,7 @@ class MonthDropdown extends React.Component {
         this.state = {
             Jan : { 
                 name: 'January',
-                startDay: 5,
+                startDay: '',
                 length: 31
             },
 
@@ -88,6 +88,12 @@ class MonthDropdown extends React.Component {
 
     handleChange = (event) => {
 
+        this.setState({Jan: {
+                name: 'January',
+                startDay: this.props.startDay,
+                length: 31,
+            }
+        })
         this.setState({Feb: {
                 name: 'February',
                 startDay: (((this.state.Jan.startDay + (this.state.Jan.length % 7)) -1) % 7) + 1,
@@ -105,7 +111,7 @@ class MonthDropdown extends React.Component {
         this.setState({Apr: {
             name: 'April',
             startDay: (((this.state.Mar.startDay + (this.state.Mar.length % 7)) -1) % 7) + 1,
-            length: 31
+            length: 30
         }
         })
 
