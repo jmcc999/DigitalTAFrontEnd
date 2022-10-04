@@ -6,13 +6,18 @@ import YearDropdown from './YearDropdown';
 
 class MonthParent extends React.Component {
 
-    state = {
-        startDay: '',
-        length: '',
-        janStartDay: '',
-    }
-
+    constructor(props) { 
+        super(props)
+        this.state = {
+            startDay: '',
+            length: '',
+            janStartDay: '',
+    }}
+    
+    //Call back function for the month dropdown
     callbackFooMonth = (value) => {
+
+        //Make the start day and length the value of the selected month
         this.setState({
           startDay: value[0],
           length: value[2] + value[3]
@@ -20,7 +25,10 @@ class MonthParent extends React.Component {
         console.log(value[2])
     }
 
+    //Call back function for the year dropdown
     callbackFooYear = (value) => {
+
+        //Make the start day for the month 
         this.setState({
           startDay: value,
           janStartDay: value
@@ -31,8 +39,8 @@ class MonthParent extends React.Component {
     render() {
         return (
             <div>
-            <Month startDay={this.state.startDay} length={this.state.length}/>
-            <MonthDropdown startDay={this.state.janStartDay} callbackFoo={(startDay,length) => this.callbackFooMonth(startDay,length)}/>
+            <Month startDay={this.state.janStartDay} length={this.state.length}/>
+            <MonthDropdown startDay={this.state.startDay} callbackFoo={(startDay,length) => this.callbackFooMonth(startDay,length)}/>
             <YearDropdown callbackFoo={(startDay) => this.callbackFooYear(startDay)}/>
             </div>
         );

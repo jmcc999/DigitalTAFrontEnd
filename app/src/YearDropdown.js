@@ -2,9 +2,12 @@ import React from "react";
 
 class YearDropdown extends React.Component {
 
+
     constructor(props) {
         super(props)
         this.state = {
+
+            //Makes all the years for the dropdown
             y22 : { 
                 name: 2022,
                 startDay: 7,
@@ -63,25 +66,22 @@ class YearDropdown extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this)
     }
-    
+
     componentDidMount() {
-        console.log('mounted')
-    }
 
-    handleChange = (event) => {
-
+        //Set the start date of each year to be based on the year before
         this.setState({y23: {
-                name: 2023,
-                startDay: (this.state.y22.startDay % 7) + 1,
-                leapYear: false
-            }
+            name: 2023,
+            startDay: (this.state.y22.startDay % 7) + 1,
+            leapYear: false
+        }
         })
 
         this.setState({y24: {
-            name: 2024,
-            startDay: (this.state.y23.startDay % 7) + 1,
-            leapYear: false
-            }
+        name: 2024,
+        startDay: (this.state.y23.startDay % 7) + 1,
+        leapYear: false
+        }
         })
 
         this.setState({y25: {
@@ -163,10 +163,19 @@ class YearDropdown extends React.Component {
                 '})')
                         
             }
-            console.log(this.state)
+           
         }
 
+       
+    }
+
+    //function for onChange
+    handleChange = (event) => {
+
+        //Set the state value to be the value of the dropdown
         this.setState({value: event.target.value})
+
+        //send this value to the parent so that the month can know what the start day is
         this.props.callbackFoo(this.state.value)
         console.log(this.state.value)
     }
@@ -174,6 +183,8 @@ class YearDropdown extends React.Component {
     render() {
 
         return (
+
+            //Dropdown for all the years
             <select onChange={(event) => this.handleChange(event)} name='yearDropdown' value={this.state.value}>
                 <option value={this.state.y22.startDay} name={this.state.y22.name}>{this.state.y22.name}</option>
                 <option value={this.state.y23.startDay} name={this.state.y23.name}>{this.state.y23.name}</option>
