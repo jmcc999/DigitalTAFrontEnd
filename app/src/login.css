@@ -4,8 +4,6 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0px 20px 20px 20px;
-    
-
 }
 .mainContent{
     position: absolute;
@@ -27,32 +25,52 @@ body {
     height: 15%;
     width: 10%;   
 }
-.userPassword {
-    padding: 40px;
-    font-size: 15px;
-    width: 80%;
+.input-container {
+  display: -ms-flexbox; 
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 15px;
 }
 .boxSize{
-    padding: 10px;
-    width: 80%;
-
+    padding: 15px;
+    width: 60%;
 }
+
 hr {
     border-top: 1px solid rgb(184, 182, 186);
   }
   button{
     background:#1F157B;
     border-radius: 20px;
-    width: 80%;
+    width: 70%;
     outline:none;
     border:none;
-    padding: 10px;
+    padding: 15px;
     color: white;
     font-weight: bold;
     transition: ease all 0.5s;
+    cursor: pointer;
+    opacity: 1;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
+  .loginButton:hover {
+    opacity: 0.8;
+  }
+
   .icon {
     background: #1F157B;
-         padding: 15px;
-         color:white;
+    padding: 16px;
+    color:white;
+    min-width: 20px;
+    text-align:center;
+  }
+
+    /* responsive design for logo on all pages */
+@media only screen and (max-width: 1100px) {
+    .logo {
+      height: 100px;
+      width: auto;   
+    }
   }
