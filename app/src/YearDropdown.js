@@ -166,7 +166,9 @@ class YearDropdown extends React.Component {
            
         }
 
-       
+        //Set the inital state and send it to the parent component
+        this.setState({value: this.state.y22.startDay})
+        this.props.callbackFoo(this.value)
     }
 
     //function for onChange

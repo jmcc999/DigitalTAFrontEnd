@@ -86,105 +86,103 @@ class MonthDropdown extends React.Component {
 
     componentDidMount() {
 
-        for (let i = 1; i <= 12; i++) {
-
-            //Sets the state so that january's start day is from the start day of the year
-            this.setState({Jan: {
-                name: 'January',
-                startDay: this.props.startDay,
-                length: 31,
-                }
-            })
-
-            //Each subsequent month's start day is based off of this
-            this.setState({Feb: {
-                    name: 'February',
-                    startDay: (((this.state.Jan.startDay + (this.state.Jan.length % 7)) -1) % 7) + 1,
-                    length: 28 
-                }
-            })
-
-            this.setState({Mar: {
-                    name: 'March',
-                    startDay: (((this.state.Feb.startDay + (this.state.Feb.length % 7)) -1) % 7) + 1,
-                    length: 31
-                }
-            })
-
-            this.setState({Apr: {
-                name: 'April',
-                startDay: (((this.state.Mar.startDay + (this.state.Mar.length % 7)) -1) % 7) + 1,
-                length: 30
+        //Sets the state so that january's start day is from the start day of the year
+        this.setState({Jan: {
+            name: 'January',
+            startDay: this.props.startDay,
+            length: 31,
             }
-            })
+        })
 
-            this.setState({May: {
-                name: 'May',
-                startDay: (((this.state.Apr.startDay + (this.state.Apr.length % 7)) -1) % 7) + 1,
+        //Each subsequent month's start day is based off of this
+        this.setState({Feb: {
+                name: 'February',
+                startDay: (((this.state.Jan.startDay + (this.state.Jan.length % 7)) -1) % 7) + 1,
+                length: 28 
+            }
+        })
+
+        this.setState({Mar: {
+                name: 'March',
+                startDay: (((this.state.Feb.startDay + (this.state.Feb.length % 7)) -1) % 7) + 1,
                 length: 31
             }
-            })
+        })
 
-            this.setState({Jun: {
-                name: 'June',
-                startDay: (((this.state.May.startDay + (this.state.May.length % 7)) -1) % 7) + 1,
-                length: 30
-            }
-            })
-
-            this.setState({Jul: {
-                name: 'July',
-                startDay: (((this.state.Jun.startDay + (this.state.Jun.length % 7)) -1) % 7) + 1,
-                length: 31
-            }
-            })
-
-            this.setState({Aug: {
-                name: 'August',
-                startDay: (((this.state.Jul.startDay + (this.state.Jul.length % 7)) -1) % 7) + 1,
-                length: 31
-            }
-            })
-
-            this.setState({Sep: {
-                name: 'September',
-                startDay: (((this.state.Aug.startDay + (this.state.Aug.length % 7)) -1) % 7) + 1,
-                length: 30
-            }
-            })
-
-            this.setState({Oct: {
-                name: 'October',
-                startDay: (((this.state.Sep.startDay + (this.state.Sep.length % 7)) -1) % 7) + 1,
-                length: 31
-            }
-            })
-
-            this.setState({Nov: {
-                name: 'November',
-                startDay: (((this.state.Oct.startDay + (this.state.Oct.length % 7)) -1) % 7) + 1,
-                length: 30
-            }
-            })
-
-            this.setState({Dec: {
-                name: 'December ',
-                startDay: (((this.state.Nov.startDay + (this.state.Nov.length % 7)) -1) % 7) + 1,
-                length: 31
-            }
-            })
-
-            //Set the inital state value to be january 
-            this.setState ({value: 
-                [this.state.Jan.startDay,this.state.Jan.length]
-            })
-            
+        this.setState({Apr: {
+            name: 'April',
+            startDay: (((this.state.Mar.startDay + (this.state.Mar.length % 7)) -1) % 7) + 1,
+            length: 30
         }
+        })
+
+        this.setState({May: {
+            name: 'May',
+            startDay: (((this.state.Apr.startDay + (this.state.Apr.length % 7)) -1) % 7) + 1,
+            length: 31
+        }
+        })
+
+        this.setState({Jun: {
+            name: 'June',
+            startDay: (((this.state.May.startDay + (this.state.May.length % 7)) -1) % 7) + 1,
+            length: 30
+        }
+        })
+
+        this.setState({Jul: {
+            name: 'July',
+            startDay: (((this.state.Jun.startDay + (this.state.Jun.length % 7)) -1) % 7) + 1,
+            length: 31
+        }
+        })
+
+        this.setState({Aug: {
+            name: 'August',
+            startDay: (((this.state.Jul.startDay + (this.state.Jul.length % 7)) -1) % 7) + 1,
+            length: 31
+        }
+        })
+
+        this.setState({Sep: {
+            name: 'September',
+            startDay: (((this.state.Aug.startDay + (this.state.Aug.length % 7)) -1) % 7) + 1,
+            length: 30
+        }
+        })
+
+        this.setState({Oct: {
+            name: 'October',
+            startDay: (((this.state.Sep.startDay + (this.state.Sep.length % 7)) -1) % 7) + 1,
+            length: 31
+        }
+        })
+
+        this.setState({Nov: {
+            name: 'November',
+            startDay: (((this.state.Oct.startDay + (this.state.Oct.length % 7)) -1) % 7) + 1,
+            length: 30
+        }
+        })
+
+        this.setState({Dec: {
+            name: 'December ',
+            startDay: (((this.state.Nov.startDay + (this.state.Nov.length % 7)) -1) % 7) + 1,
+            length: 31
+        }
+        })
+
+        //Set the inital state value to be january 
+        this.setState ({value: 
+            [this.state.Jan.startDay,this.state.Jan.length]
+        })
+
+        //Send the value to the parent component
+        this.props.callbackFoo(this.state.value[0],(this.state.value[2] + this.state.value[3]))
+        console.log(this.state.value)
+        
     }
 
-    componentDidMount() {
-        console.log(this.props.startDay)
-    }
     //Function for onChange
     handleChange = (event) => {
 
