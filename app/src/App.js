@@ -2,8 +2,31 @@ import React, {Component} from "react";
 import logo from './purplelogo.png';
 import './App.css';
 import Subject from './Subject'
+import Session from './components/session'
+let baseURL = 'process.env.REACT_APP_BACKEND_URL'
+// baseURL = 'http://localhost:3000'
 
 class App extends Component {
+
+  loginUser = (e) => {
+    e.preventDefault()
+    fetch(baseURL + '/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: "include"
+    }).then(res => res.json())
+    .then(resJson => {
+      console.log(resJson)
+      this.getActivities()
+    })
+  }
+
   render() {
     return (
      <div id="idxContent">
@@ -13,6 +36,7 @@ class App extends Component {
         <div className="dateContainer">
           <div id= "date" className="date">Date</div>
         </div>
+           <Session loginUser={this.loginUser} register={this.register}/>
           <Subject name ={''}/>
           <Subject name ={''}/>
           <Subject name ={''}/>
