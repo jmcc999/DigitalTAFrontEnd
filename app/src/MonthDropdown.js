@@ -89,7 +89,7 @@ class MonthDropdown extends React.Component {
         //Sets the state so that january's start day is from the start day of the year
         this.setState({Jan: {
             name: 'January',
-            startDay: this.props.startDay,
+            startDay: '', //How to set this as this.props.startDay?
             length: 31,
             }
         })
@@ -179,7 +179,7 @@ class MonthDropdown extends React.Component {
 
         //Send the value to the parent component
         this.props.callbackFoo(this.state.value[0],(this.state.value[2] + this.state.value[3]))
-        console.log(this.state.value)
+        console.log(this.state)
         
     }
 

@@ -22,7 +22,6 @@ class MonthParent extends React.Component {
           startDay: value[0],
           length: value[2] + value[3]
         })
-        console.log(value[2])
     }
 
     //Call back function for the year dropdown
