@@ -25,6 +25,7 @@
   font-weight: bold; 
 }
 .logo{
+
 height: 15%;
 width: 10%;
 }
@@ -70,6 +71,8 @@ width: 10%;
   .logo {
     height: 100px;
     width: auto;
-   
-  }
+    
+    
+
+}
 }
