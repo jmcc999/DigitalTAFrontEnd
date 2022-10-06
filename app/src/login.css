@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Open+Sans:wght@300;400;500;700&display=swap');
+
 body {
     background: linear-gradient(to bottom right, white ,#E4E2FF, #9F6EFF ,#1F157B);
     background-repeat: no-repeat;
@@ -41,7 +43,7 @@ hr {
     border-top: 1px solid rgb(184, 182, 186);
   }
   button{
-    background:#1F157B;
+    background:#f2860bbf;
     border-radius: 20px;
     width: 70%;
     outline:none;
@@ -66,11 +68,34 @@ hr {
     min-width: 20px;
     text-align:center;
   }
-
+.signUp{
+    float: right;
+    padding:40px;
+    color:#1F157B;
+    text-decoration:underline;
+    font-family: 'Open Sans', sans-serif;
+}
+.slogan{
+    position:absolute;
+    top: 60px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:100;
+    padding-left: 10px;
+    font-size: small;
+    color:#1F157B;
+}
+h3{
+    font-family: 'Open Sans', sans-serif;
+    color:#1F157B;
+}
     /* responsive design for logo on all pages */
 @media only screen and (max-width: 1100px) {
     .logo {
       height: 100px;
       width: auto;   
+    }
+    .slogan{
+        position:absolute;
+        top: 45px;
     }
   }
