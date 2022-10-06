@@ -16,11 +16,13 @@ class MonthParent extends React.Component {
     
     //Call back function for the month dropdown
     callbackFooMonth = (value) => {
-
+        console.log('v' , value)
+        let newValue = [value[0], value[2] + value[3]]
+        console.log(newValue)
         //Make the start day and length the value of the selected month
         this.setState({
           startDay: value[0],
-          length: value[2] + value[3]
+          length: value[1]
         })
     }
 
@@ -38,7 +40,7 @@ class MonthParent extends React.Component {
         return (
             <div>
             <Month startDay={this.state.startDay} length={this.state.length}/>
-            <MonthDropdown startDay={this.state.janStartDay} callbackFoo={(startDay,length) => this.callbackFooMonth(startDay,length)}/>
+            <MonthDropdown startDay={this.state.janStartDay} callbackFoo={(value) => this.callbackFooMonth(value)}/>
             <YearDropdown callbackFoo={(startDay) => this.callbackFooYear(startDay)}/>
             </div>
         );

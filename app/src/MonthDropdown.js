@@ -86,7 +86,7 @@ class MonthDropdown extends React.Component {
 
     componentDidMount() {
 
-        //Sets the state so that january's start day is from the start day of the year
+        // //Sets the state so that january's start day is from the start day of the year
         this.setState({Jan: {
             name: 'January',
             startDay: '', //How to set this as this.props.startDay?
@@ -178,28 +178,29 @@ class MonthDropdown extends React.Component {
         })
 
         //Send the value to the parent component
-        this.props.callbackFoo(this.state.value[0],(this.state.value[2] + this.state.value[3]))
-        console.log(this.state)
+        // this.props.callbackFoo(this.state.value[0],(this.state.value[2] + this.state.value[3]))
+        // console.log(this.state)
         
     }
 
     //Function for onChange
     handleChange = (event) => {
 
+        console.log(event.target.value)
         //Make the state value the value of the selected option
-        this.setState({value: [event.target.value]})
+        // this.setState({value: event.target.value})
 
         //Callback function to send start day and length to the parent that renders the month
-        this.props.callbackFoo(this.state.value[0],(this.state.value[2] + this.state.value[3]))
-        console.log(this.state)
+        this.props.callbackFoo(event.target.value)
+        // console.log(this.state)
     }
 
     render() {
-
+console.log(this.state)
         return (
 
             //Dropdown with all the options
-            <select onChange={(event) => this.handleChange(event)} name='monthDropdown' value={this.state.value}>
+            <select onChange={(event) => this.handleChange(event)} name='monthDropdown'>
                 <option value={[this.state.Jan.startDay,this.state.Jan.length]} name={this.state.Jan.name}>{this.state.Jan.name}</option>
                 <option value={[this.state.Feb.startDay,this.state.Feb.length]} name={this.state.Feb.name}>{this.state.Feb.name}</option>
                 <option value={[this.state.Mar.startDay,this.state.Mar.length]} name={this.state.Mar.name}>{this.state.Mar.name}</option>
