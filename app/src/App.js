@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import logo from './purplelogo.png';
 import './App.css';
-import Subject from './Subject'
-import Session from './components/session'
+import Subject from './components'
+import Session from './components'
 let baseURL = 'process.env.REACT_APP_BACKEND_URL'
 // baseURL = 'http://localhost:3000'
 
