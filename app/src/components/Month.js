@@ -1,7 +1,3 @@
-import React from 'react';
-import './index.css';
-import Square from './Square';
-
 
 //Make the month component
 class Month extends React.Component {  
