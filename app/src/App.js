@@ -1,12 +1,12 @@
 
 
 import React, {Component} from 'react'
+
+
 // COMPONENTS
 import Home from './components/home'
 
-import Index from './components/index'
-
-import Login from './components/login'
+import Session from './components/session'
 
 import MonthParent from './components/MonthParent'
 
@@ -17,25 +17,121 @@ import './App.css';
 //https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
 //Using Kirk Strobeck's answer as a guide for the drop down
 
+let baseURL = process.env.REACT_APP_BACKEND_URL
+
 class App extends Component {
+  //add state
+  constructor(props) {
+    super(props)
+    this.state = {
+      activities: [],
+    }
+  }
+	// componentDidMount() {
+	// 	this.getActivities();
+	// }
+
+  loginUser = (e) => {
+    e.preventDefault()
+    fetch(baseURL + '/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: "include"
+    }).then(res => res.json())
+    .then(resJson => {
+      console.log(resJson)
+      this.getActivities()
+    })
+  }
+
+  register = (e) => {
+    e.preventDefault()
+    fetch(baseURL + '/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(resJson => {
+      console.log(resJson)
+      //  refresh the page
+    })
+  }
+
+  // getActivities = () => {
+  //   fetch(baseURL + '/activities', {
+  //     credentials: 'include'
+  //   })
+  //     .then((res) => {
+  //      if (res.status === 200) {
+  //      return res.json()
+  //     }else{
+  //      return []
+  //     }
+  //   })
+  //   .then((data) => {
+  //     if(data === []) {
+  //       this.setState({ activities: data})
+  //     }else{
+  //       this.setState({activities: data.activities})
+  //     }
+  //   })
+  // }
+
+  // handleAddActivity = (activity) => {
+  //   const copyActivity = [...this.state.activities]
+  //   copyActivity.unshift(activity)
+  //   this.setState({activity: copyActivity})
+  // }
+
+  // handleDelete = (id) => {
+	// 	fetch(baseURL + '/activities/' + id, {
+	// 		method: 'DELETE',
+	// 		credentials: "include"
+	// 	}).then( res => {
+	// 		const copyActivity = [...this.state.activities];
+	// 		const findIndex = this.state.activities.findIndex(
+	// 				(activity) => activity._id === id
+	// 			);
+	// 		 copyActivity.splice(findIndex, 1);
+	// 		 this.setState({ activities: copyActivity });
+	// 	})
+	// }
+  
   render() {
     return (
 <div>
-    <div id="idxContent"> {/* large parent div that holds all content of index page */}
-        <div id="nav" className="nav"><Home /><Index /><Login /> {/* holds logo */}
+<div>
+
+</div>
+    <div id="idxContent"> 
+        <div id="nav" className="nav">
           <div id="logo"><img src='' alt="Digital TA Logo" className="logo"/></div> 
         </div>
+        <div id='login'><Session loginUser={this.loginUser} register={this.register}/></div>
         <div className="dateContainer">     
-        <MonthParent />
-          <div id= "date" className="date">Date</div>{/* the date */}
+        
+          <div id= "date" className="date"></div>
         </div>
-      <div>{/* this is the parent container to the index tabs that hold each lesson plan. */}
-        <div className="top"> {/* top half of lesson plan index tabs */}
+      <div>
+      <MonthParent />
+        <div className="top">
             <Subject name ={''}/>
             <Subject name ={''}/>
             <Subject name ={''}/>
+          
         </div> 
-        <div className="bottom"> {/* bottom half of lesson plan index tabs*/}
+        <div className="bottom"> 
             <Subject name ={''}/>
             <Subject name ={''}/>
             <Subject name ={''}/>
