@@ -10,6 +10,8 @@ import Login from './components/login'
 
 import MonthParent from './components/MonthParent'
 
+import Subject from './components/index'
+
 import './App.css';
 
 //https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
@@ -21,7 +23,7 @@ class App extends Component {
 <div>
     <div id="idxContent"> {/* large parent div that holds all content of index page */}
         <div id="nav" className="nav"><Home /><Index /><Login /> {/* holds logo */}
-          <div id="logo"><img src={logo} alt="Digital TA Logo" className="logo"/></div> {/* logo png source */}
+          <div id="logo"><img src='' alt="Digital TA Logo" className="logo"/></div> 
         </div>
         <div className="dateContainer">     
         <MonthParent />

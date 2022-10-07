@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 
 class Show extends React.Component {
     constructor(props){
