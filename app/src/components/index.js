@@ -69,6 +69,7 @@ class Subject extends Component {
           </div>
         </div>
       
+      
     )
   }
 }
