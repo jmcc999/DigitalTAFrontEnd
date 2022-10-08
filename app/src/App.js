@@ -48,7 +48,7 @@ class App extends Component {
 .then(res => res.text())
 .then(text => console.log(text))
     .then(resJson => {
-      console.log(resJson)
+      // console.log(resJson)
       this.getActivities()
     })
   }
@@ -71,25 +71,25 @@ class App extends Component {
     })
   }
 
-  // getActivities = () => {
-  //   fetch(baseURL + '/activities', {
-  //     credentials: 'include'
-  //   })
-  //     .then((res) => {
-  //      if (res.status === 200) {
-  //      return res.json()
-  //     }else{
-  //      return []
-  //     }
-  //   })
-  //   .then((data) => {
-  //     if(data === []) {
-  //       this.setState({ activities: data})
-  //     }else{
-  //       this.setState({activities: data.activities})
-  //     }
-  //   })
-  // }
+  getActivities = () => {
+    fetch(baseURL + '/activities', {
+      credentials: 'include'
+    })
+      .then((res) => {
+       if (res.status === 200) {
+       return res.json()
+      }else{
+       return []
+      }
+    })
+    .then((data) => {
+      if(data === []) {
+        this.setState({ activities: data})
+      }else{
+        this.setState({activities: data.activities})
+      }
+    })
+  }
 
   // handleAddActivity = (activity) => {
   //   const copyActivity = [...this.state.activities]
