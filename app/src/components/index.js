@@ -58,14 +58,14 @@ class Subject extends Component {
   render() {
     return (
 
-      <div className="subjectContainer">  
+<div className="subjectContainer">  
       <table>
                 <tbody>
                   {this.state.activities.map((activity) => {
                     return (
                       <tr key={activity._id}>
                         <td className="subjectName">
-                          {activity.completed ? 'completed' : null}>
+                          {activity.completed ? 'completed' : null}
                           {activity.name}
                         </td>
                         <td> {activity.subject} </td>
