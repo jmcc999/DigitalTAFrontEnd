@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.css';
-import Square from '../components/Square';
+import '../index.css';
+import Square from './Square';
 
 
 //Make the month component

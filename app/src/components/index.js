@@ -68,6 +68,7 @@ class Subject extends Component {
                           {activity.completed ? 'completed' : null}
                           {activity.name}
                         </td>
+                        <td> {activity.type} : </td>
                         <td> {activity.subject} </td>
                         <td onClick={() => this.handleDelete(activity._id)}>X</td>
                       </tr>

@@ -79,7 +79,7 @@ function MonthDropdown(props) {
     }
 
     })
-
+console.log(months)
     //Function for onChange
     const handleChange = (event) => {
 
@@ -240,8 +240,8 @@ function MonthDropdown(props) {
         console.log(event.target.value)
     }
      
-        
-
+        console.log(months)
+        console.log(months.monthMaster.Jan.startDay)
     return (
         <div>
         <select onChange={(event) => handleChange(event)} name='monthDropdown'>
