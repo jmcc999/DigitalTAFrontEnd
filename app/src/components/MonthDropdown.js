@@ -1,221 +1,266 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
-class MonthDropdown extends React.Component {
+function MonthDropdown(props) {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-
-            //Makes the options for all the months
-            Jan : { 
-                name: 'January',
-                startDay: '',
-                length: 31
-            },
-
-            Feb: {
-                name: 'February',
-                startDay: '',
-                length: 28  
-            },
-
-            Mar: {
-                name: 'March',
-                startDay: '',
-                length: 31  
-            },
-
-            Apr: {
-                name: 'April',
-                startDay: '',
-                length: 30
-            },
-
-            May: {
-                name: 'May',
-                startDay: '',
-                length: 31  
-            },
-
-            Jun: {
-                name: 'June',
-                startDay: '',
-                length: 30 
-            },
-
-            Jul: {
-                name: 'July',
-                startDay: '',
-                length: 31 
-            },
-
-            Aug: {
-                name: 'August',
-                startDay: '',
-                length: 31 
-            },
-
-            Sep: {
-                name: 'September',
-                startDay: '',
-                length: 30  
-            },
-
-            Oct: {
-                name: 'October',
-                startDay: '',
-                length: 31  
-            },
-
-            Nov: {
-                name: 'November',
-                startDay: '',
-                length: 30  
-            },
-
-            Dec: {
-                name: 'December',
-                startDay: '',
-                length: 31  
-            },
-
-            value: '?'
-        }
-        this.handleChange = this.handleChange.bind(this)
-    }
-
-    componentDidMount() {
-
-        // //Sets the state so that january's start day is from the start day of the year
-        this.setState({Jan: {
+    //Saves all of the months 
+    const [months, setMonths] = useState ({ monthMaster : {
+        Jan: {
             name: 'January',
-            startDay: '', //How to set this as this.props.startDay?
+            startDay: '2', //How to set this as this.props.startDay?
             length: 31,
-            }
-        })
+        },
 
-        //Each subsequent month's start day is based off of this
-        this.setState({Feb: {
-                name: 'February',
-                startDay: (((this.state.Jan.startDay + (this.state.Jan.length % 7)) -1) % 7) + 1,
-                length: 28 
-            }
-        })
+        Feb: {
+            name: 'February',
+            startDay: '',
+            length: 28 
+        },
 
-        this.setState({Mar: {
-                name: 'March',
-                startDay: (((this.state.Feb.startDay + (this.state.Feb.length % 7)) -1) % 7) + 1,
-                length: 31
-            }
-        })
+        Mar: {
+            name: 'March',
+            startDay: '',
+            length: 31
+        },
 
-        this.setState({Apr: {
+        Apr: {
             name: 'April',
-            startDay: (((this.state.Mar.startDay + (this.state.Mar.length % 7)) -1) % 7) + 1,
+            startDay: '',
             length: 30
-        }
-        })
+        },
 
-        this.setState({May: {
+        May: {
             name: 'May',
-            startDay: (((this.state.Apr.startDay + (this.state.Apr.length % 7)) -1) % 7) + 1,
-            length: 31
-        }
-        })
+            startDay: '',
+            length: 31  
+        },
 
-        this.setState({Jun: {
+        Jun: {
             name: 'June',
-            startDay: (((this.state.May.startDay + (this.state.May.length % 7)) -1) % 7) + 1,
-            length: 30
-        }
-        })
+            startDay: '',
+            length: 30 
+        },
 
-        this.setState({Jul: {
+        Jul: {
             name: 'July',
-            startDay: (((this.state.Jun.startDay + (this.state.Jun.length % 7)) -1) % 7) + 1,
-            length: 31
-        }
-        })
+            startDay: '',
+            length: 31 
+        },
 
-        this.setState({Aug: {
+        Aug: {
             name: 'August',
-            startDay: (((this.state.Jul.startDay + (this.state.Jul.length % 7)) -1) % 7) + 1,
-            length: 31
-        }
-        })
+            startDay: '',
+            length: 31 
+        },
 
-        this.setState({Sep: {
+        Sep: {
             name: 'September',
-            startDay: (((this.state.Aug.startDay + (this.state.Aug.length % 7)) -1) % 7) + 1,
-            length: 30
-        }
-        })
+            startDay: '',
+            length: 30  
+        },
 
-        this.setState({Oct: {
+        Oct: {
             name: 'October',
-            startDay: (((this.state.Sep.startDay + (this.state.Sep.length % 7)) -1) % 7) + 1,
-            length: 31
-        }
-        })
+            startDay: '',
+            length: 31  
+        },
 
-        this.setState({Nov: {
+        Nov: {
             name: 'November',
-            startDay: (((this.state.Oct.startDay + (this.state.Oct.length % 7)) -1) % 7) + 1,
-            length: 30
-        }
-        })
+            startDay: '',
+            length: 30  
+        },
 
-        this.setState({Dec: {
-            name: 'December ',
-            startDay: (((this.state.Nov.startDay + (this.state.Nov.length % 7)) -1) % 7) + 1,
-            length: 31
-        }
-        })
-
-        //Set the inital state value to be january 
-        this.setState ({value: 
-            [this.state.Jan.startDay,this.state.Jan.length]
-        })
-
-        //Send the value to the parent component
-        // this.props.callbackFoo(this.state.value[0],(this.state.value[2] + this.state.value[3]))
-        // console.log(this.state)
-        
+        Dec: {
+            name: 'December',
+            startDay: '',
+            length: 31  
+        },
     }
+
+    })
 
     //Function for onChange
-    handleChange = (event) => {
+    const handleChange = (event) => {
 
-        console.log(event.target.value)
-        //Make the state value the value of the selected option
-        // this.setState({value: event.target.value})
+        if (props.leapYear === 't') {
+                setMonths({ ...months, monthMaster: {
+                    Jan: {
+                        name: 'January',
+                        startDay: props.startDay,
+                        length: 31,
+                    },
+                    
+                    Feb : {
+                        name: 'February',
+                        startDay: ((((parseInt(months.monthMaster.Jan.startDay) + (months.monthMaster.Jan.length % 7)) -1) % 7) + 1).toString(),
+                        length: 29
+                    },
+
+                    Mar: {
+                        name: 'March',
+                        startDay: ((((parseInt(months.monthMaster.Feb.startDay) + (months.monthMaster.Feb.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Apr: {
+                        name: 'April',
+                        startDay: ((((parseInt(months.monthMaster.Mar.startDay) + (months.monthMaster.Mar.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    May: {
+                        name: 'May',
+                        startDay: ((((parseInt(months.monthMaster.Apr.startDay) + (months.monthMaster.Apr.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Jun: {
+                        name: 'June',
+                        startDay: ((((parseInt(months.monthMaster.May.startDay) + (months.monthMaster.May.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Jul: {
+                        name: 'July',
+                        startDay: ((((parseInt(months.monthMaster.Jun.startDay) + (months.monthMaster.Jun.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Aug: {
+                        name: 'August',
+                        startDay: ((((parseInt(months.monthMaster.Jul.startDay) + (months.monthMaster.Jul.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Sep: {
+                        name: 'September',
+                        startDay: ((((parseInt(months.monthMaster.Aug.startDay) + (months.monthMaster.Aug.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Oct: {
+                        name: 'October',
+                        startDay: ((((parseInt(months.monthMaster.Sep.startDay) + (months.monthMaster.Sep.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Nov: {
+                        name: 'November',
+                        startDay: ((((parseInt(months.monthMaster.Oct.startDay) + (months.monthMaster.Oct.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Dec: {
+                        name: 'December ',
+                        startDay: ((((parseInt(months.monthMaster.Nov.startDay) + (months.monthMaster.Nov.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    }
+                }
+            })
+            } else {
+                setMonths({ ...months, monthMaster: {
+                    Jan: {
+                        name: 'January',
+                        startDay: props.startDay,
+                        length: 31,
+                    },
+                    
+                    Feb : {
+                        name: 'February',
+                        startDay: ((((parseInt(months.monthMaster.Jan.startDay) + (months.monthMaster.Jan.length % 7)) -1) % 7) + 1).toString(),
+                        length: 28 
+                    },
+
+                    Mar: {
+                        name: 'March',
+                        startDay: ((((parseInt(months.monthMaster.Feb.startDay) + (months.monthMaster.Feb.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Apr: {
+                        name: 'April',
+                        startDay: ((((parseInt(months.monthMaster.Mar.startDay) + (months.monthMaster.Mar.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    May: {
+                        name: 'May',
+                        startDay: ((((parseInt(months.monthMaster.Apr.startDay) + (months.monthMaster.Apr.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Jun: {
+                        name: 'June',
+                        startDay: ((((parseInt(months.monthMaster.May.startDay) + (months.monthMaster.May.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Jul: {
+                        name: 'July',
+                        startDay: ((((parseInt(months.monthMaster.Jun.startDay) + (months.monthMaster.Jun.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Aug: {
+                        name: 'August',
+                        startDay: ((((parseInt(months.monthMaster.Jul.startDay) + (months.monthMaster.Jul.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    },
+
+                    Sep: {
+                        name: 'September',
+                        startDay: ((((parseInt(months.monthMaster.Aug.startDay) + (months.monthMaster.Aug.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Oct: {
+                        name: 'October',
+                        startDay: ((((parseInt(months.monthMaster.Sep.startDay) + (months.monthMaster.Sep.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Nov: {
+                        name: 'November',
+                        startDay: ((((parseInt(months.monthMaster.Oct.startDay) + (months.monthMaster.Oct.length % 7)) -1) % 7) + 1).toString(),
+                        length: 30
+                    },
+
+                    Dec: {
+                        name: 'December ',
+                        startDay: ((((parseInt(months.monthMaster.Nov.startDay) + (months.monthMaster.Nov.length % 7)) -1) % 7) + 1).toString(),
+                        length: 31
+                    }
+                }
+            })
+        }
 
         //Callback function to send start day and length to the parent that renders the month
-        this.props.callbackFoo(event.target.value)
-        // console.log(this.state)
+        props.callbackFoo(event.target.value)
+        console.log(event.target.value)
     }
+     
+        
 
-    render() {
-console.log(this.state)
-        return (
-
-            //Dropdown with all the options
-            <select onChange={(event) => this.handleChange(event)} name='monthDropdown'>
-                <option value={[this.state.Jan.startDay,this.state.Jan.length]} name={this.state.Jan.name}>{this.state.Jan.name}</option>
-                <option value={[this.state.Feb.startDay,this.state.Feb.length]} name={this.state.Feb.name}>{this.state.Feb.name}</option>
-                <option value={[this.state.Mar.startDay,this.state.Mar.length]} name={this.state.Mar.name}>{this.state.Mar.name}</option>
-                <option value={[this.state.Apr.startDay,this.state.Apr.length]} name={this.state.Apr.name}>{this.state.Apr.name}</option>
-                <option value={[this.state.May.startDay,this.state.May.length]} name={this.state.May.name}>{this.state.May.name}</option>
-                <option value={[this.state.Jun.startDay,this.state.Jun.length]} name={this.state.Jun.name}>{this.state.Jun.name}</option>
-                <option value={[this.state.Jul.startDay,this.state.Jul.length]} name={this.state.Jul.name}>{this.state.Jul.name}</option>
-                <option value={[this.state.Aug.startDay,this.state.Aug.length]} name={this.state.Aug.name}>{this.state.Aug.name}</option>
-                <option value={[this.state.Sep.startDay,this.state.Sep.length]} name={this.state.Sep.name}>{this.state.Sep.name}</option>
-                <option value={[this.state.Oct.startDay,this.state.Oct.length]} name={this.state.Oct.name}>{this.state.Oct.name}</option>
-                <option value={[this.state.Nov.startDay,this.state.Nov.length]} name={this.state.Nov.name}>{this.state.Nov.name}</option>
-                <option value={[this.state.Dec.startDay,this.state.Dec.length]} name={this.state.Dec.name}>{this.state.Dec.name}</option>
-            </select>
-        )
-    }
+    return (
+        <div>
+        <select onChange={(event) => handleChange(event)} name='monthDropdown'>
+            <option value={[months.monthMaster.Jan.startDay, months.monthMaster.Jan.length]} name={months.monthMaster.Jan.name}>{months.monthMaster.Jan.name}</option>
+            <option value={[months.monthMaster.Feb.startDay, months.monthMaster.Feb.length]} name={months.monthMaster.Feb.name}>{months.monthMaster.Feb.name}</option>
+            <option value={[months.monthMaster.Mar.startDay, months.monthMaster.Mar.length]} name={months.monthMaster.Mar.name}>{months.monthMaster.Mar.name}</option>
+            <option value={[months.monthMaster.Apr.startDay, months.monthMaster.Apr.length]} name={months.monthMaster.Apr.name}>{months.monthMaster.Apr.name}</option>
+            <option value={[months.monthMaster.May.startDay, months.monthMaster.May.length]} name={months.monthMaster.May.name}>{months.monthMaster.May.name}</option>
+            <option value={[months.monthMaster.Jun.startDay, months.monthMaster.Jun.length]} name={months.monthMaster.Jun.name}>{months.monthMaster.Jun.name}</option>
+            <option value={[months.monthMaster.Jul.startDay, months.monthMaster.Jul.length]} name={months.monthMaster.Jul.name}>{months.monthMaster.Jul.name}</option>
+            <option value={[months.monthMaster.Aug.startDay, months.monthMaster.Aug.length]} name={months.monthMaster.Aug.name}>{months.monthMaster.Aug.name}</option>
+            <option value={[months.monthMaster.Sep.startDay, months.monthMaster.Sep.length]} name={months.monthMaster.Sep.name}>{months.monthMaster.Sep.name}</option>
+            <option value={[months.monthMaster.Oct.startDay, months.monthMaster.Oct.length]} name={months.monthMaster.Oct.name}>{months.monthMaster.Oct.name}</option>
+            <option value={[months.monthMaster.Nov.startDay, months.monthMaster.Nov.length]} name={months.monthMaster.Nov.name}>{months.monthMaster.Nov.name}</option>
+            <option value={[months.monthMaster.Dec.startDay, months.monthMaster.Dec.length]} name={months.monthMaster.Dec.name}>{months.monthMaster.Dec.name}</option>
+        </select>
+        </div>
+    )
+    
 }
 
 export default MonthDropdown
