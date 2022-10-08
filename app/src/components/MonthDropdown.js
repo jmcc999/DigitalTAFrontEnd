@@ -84,80 +84,157 @@ function MonthDropdown(props) {
         const handleChange = (event) => {
 
 console.log(months)
-        setMonths({ ...months, monthMaster: {
-                Jan: {
-                    name: 'January',
-                    startDay: '4', //How to set this as this.props.startDay?
-                    length: 31,
-                },
-                
-                Feb : {
-                    name: 'February',
-                    startDay: ((((parseInt(months.monthMaster.Jan.startDay) + (months.monthMaster.Jan.length % 7)) -1) % 7) + 1).toString(),
-                    length: 28 
-                },
+if (props.leapYear === 't') {
+    setMonths({ ...months, monthMaster: {
+        Jan: {
+            name: 'January',
+            startDay: '4', //How to set this as this.props.startDay?
+            length: 31,
+        },
+        
+        Feb : {
+            name: 'February',
+            startDay: ((((parseInt(months.monthMaster.Jan.startDay) + (months.monthMaster.Jan.length % 7)) -1) % 7) + 1).toString(),
+            length: 29
+        },
 
-                Mar: {
-                    name: 'March',
-                    startDay: ((((parseInt(months.monthMaster.Feb.startDay) + (months.monthMaster.Feb.length % 7)) -1) % 7) + 1).toString(),
-                    length: 31
-                },
+        Mar: {
+            name: 'March',
+            startDay: ((((parseInt(months.monthMaster.Feb.startDay) + (months.monthMaster.Feb.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
 
-                Apr: {
-                    name: 'April',
-                    startDay: ((((parseInt(months.monthMaster.Mar.startDay) + (months.monthMaster.Mar.length % 7)) -1) % 7) + 1).toString(),
-                    length: 30
-                },
+        Apr: {
+            name: 'April',
+            startDay: ((((parseInt(months.monthMaster.Mar.startDay) + (months.monthMaster.Mar.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
 
-                May: {
-                    name: 'May',
-                    startDay: ((((parseInt(months.monthMaster.Apr.startDay) + (months.monthMaster.Apr.length % 7)) -1) % 7) + 1).toString(),
-                    length: 31
-                },
+        May: {
+            name: 'May',
+            startDay: ((((parseInt(months.monthMaster.Apr.startDay) + (months.monthMaster.Apr.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
 
-                Jun: {
-                    name: 'June',
-                    startDay: ((((parseInt(months.monthMaster.May.startDay) + (months.monthMaster.May.length % 7)) -1) % 7) + 1).toString(),
-                    length: 30
-                },
+        Jun: {
+            name: 'June',
+            startDay: ((((parseInt(months.monthMaster.May.startDay) + (months.monthMaster.May.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
 
-                Jul: {
-                    name: 'July',
-                    startDay: ((((parseInt(months.monthMaster.Jun.startDay) + (months.monthMaster.Jun.length % 7)) -1) % 7) + 1).toString(),
-                    length: 31
-                },
+        Jul: {
+            name: 'July',
+            startDay: ((((parseInt(months.monthMaster.Jun.startDay) + (months.monthMaster.Jun.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
 
-                Aug: {
-                    name: 'August',
-                    startDay: ((((parseInt(months.monthMaster.Jul.startDay) + (months.monthMaster.Jul.length % 7)) -1) % 7) + 1).toString(),
-                    length: 31
-                },
+        Aug: {
+            name: 'August',
+            startDay: ((((parseInt(months.monthMaster.Jul.startDay) + (months.monthMaster.Jul.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
 
-                Sep: {
-                    name: 'September',
-                    startDay: ((((parseInt(months.monthMaster.Aug.startDay) + (months.monthMaster.Aug.length % 7)) -1) % 7) + 1).toString(),
-                    length: 30
-                },
+        Sep: {
+            name: 'September',
+            startDay: ((((parseInt(months.monthMaster.Aug.startDay) + (months.monthMaster.Aug.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
 
-                Oct: {
-                    name: 'October',
-                    startDay: ((((parseInt(months.monthMaster.Sep.startDay) + (months.monthMaster.Sep.length % 7)) -1) % 7) + 1).toString(),
-                    length: 30
-                },
+        Oct: {
+            name: 'October',
+            startDay: ((((parseInt(months.monthMaster.Sep.startDay) + (months.monthMaster.Sep.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
 
-                Nov: {
-                    name: 'November',
-                    startDay: ((((parseInt(months.monthMaster.Oct.startDay) + (months.monthMaster.Oct.length % 7)) -1) % 7) + 1).toString(),
-                    length: 30
-                },
+        Nov: {
+            name: 'November',
+            startDay: ((((parseInt(months.monthMaster.Oct.startDay) + (months.monthMaster.Oct.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
 
-                Dec: {
-                    name: 'December ',
-                    startDay: ((((parseInt(months.monthMaster.Nov.startDay) + (months.monthMaster.Nov.length % 7)) -1) % 7) + 1).toString(),
-                    length: 31
-                }
-            }
-        })
+        Dec: {
+            name: 'December ',
+            startDay: ((((parseInt(months.monthMaster.Nov.startDay) + (months.monthMaster.Nov.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        }
+    }
+})
+} else {
+    setMonths({ ...months, monthMaster: {
+        Jan: {
+            name: 'January',
+            startDay: '4', //How to set this as this.props.startDay?
+            length: 31,
+        },
+        
+        Feb : {
+            name: 'February',
+            startDay: ((((parseInt(months.monthMaster.Jan.startDay) + (months.monthMaster.Jan.length % 7)) -1) % 7) + 1).toString(),
+            length: 28 
+        },
+
+        Mar: {
+            name: 'March',
+            startDay: ((((parseInt(months.monthMaster.Feb.startDay) + (months.monthMaster.Feb.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
+
+        Apr: {
+            name: 'April',
+            startDay: ((((parseInt(months.monthMaster.Mar.startDay) + (months.monthMaster.Mar.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
+
+        May: {
+            name: 'May',
+            startDay: ((((parseInt(months.monthMaster.Apr.startDay) + (months.monthMaster.Apr.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
+
+        Jun: {
+            name: 'June',
+            startDay: ((((parseInt(months.monthMaster.May.startDay) + (months.monthMaster.May.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
+
+        Jul: {
+            name: 'July',
+            startDay: ((((parseInt(months.monthMaster.Jun.startDay) + (months.monthMaster.Jun.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
+
+        Aug: {
+            name: 'August',
+            startDay: ((((parseInt(months.monthMaster.Jul.startDay) + (months.monthMaster.Jul.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        },
+
+        Sep: {
+            name: 'September',
+            startDay: ((((parseInt(months.monthMaster.Aug.startDay) + (months.monthMaster.Aug.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
+
+        Oct: {
+            name: 'October',
+            startDay: ((((parseInt(months.monthMaster.Sep.startDay) + (months.monthMaster.Sep.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
+
+        Nov: {
+            name: 'November',
+            startDay: ((((parseInt(months.monthMaster.Oct.startDay) + (months.monthMaster.Oct.length % 7)) -1) % 7) + 1).toString(),
+            length: 30
+        },
+
+        Dec: {
+            name: 'December ',
+            startDay: ((((parseInt(months.monthMaster.Nov.startDay) + (months.monthMaster.Nov.length % 7)) -1) % 7) + 1).toString(),
+            length: 31
+        }
+    }
+})
+}
 
         //Callback function to send start day and length to the parent that renders the month
         props.callbackFoo(event.target.value)
