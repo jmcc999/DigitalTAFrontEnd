@@ -1,4 +1,6 @@
-export default function Nav(props) {
+export default function Session(props) {
+
+
     return (
       <nav>
         <form onSubmit={props.loginUser}>
@@ -17,6 +19,6 @@ export default function Nav(props) {
           <input type="submit" value="signup" />
         </form>
       </nav>
+    
     )
   }
-  
