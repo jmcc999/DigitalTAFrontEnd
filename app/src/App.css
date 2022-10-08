@@ -1,0 +1,78 @@
+
+/*home.html and App.js CSS live here*/
+.idxContainer{
+  position:relative;
+}
+.nav{
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  height: 110%;
+  width: 100%;
+}
+.dateContainer {/* holds date information */
+  margin: 90px 0 0 90px;
+  border-radius: 50px;
+  background-color: #FFCB8F;
+  height: 70px;
+  width: 22%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date {/* the date */
+  color: white;
+  font-weight: bold; 
+}
+.logo{
+
+height: 15%;
+width: 10%;
+}
+
+
+/* CSS for home.html page in public folder*/
+.container {
+  display:flex;
+  }
+  nav {/* holds logo */
+    position: absolute;
+  }
+  .profileContainer {/* purple/ user information section of background */
+     height: 1000px;
+       width: 550px;
+       border-radius: 0 600px 600px 0;
+       background:#9F6EFF;
+  }
+  .calenderContainer {/* calender container*/
+    float:right;
+  }
+  
+  img {/* user profile picture */
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+  }
+  .userInfo{/* user greeting and grade information */
+  color: white;
+  position: relative;
+  top: 250px;
+  text-align: center;
+  }
+  h3 {/* CSS for user grade and class */
+    font-weight:lighter;
+    color: rgb(46, 44, 44)
+  }
+
+
+
+  /* responsive design for logo on all pages */
+@media only screen and (max-width: 1100px) {
+  .logo {
+    height: 100px;
+    width: auto;
+    
+    
+
+}
+}
