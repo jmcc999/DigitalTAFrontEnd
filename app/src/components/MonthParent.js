@@ -21,8 +21,8 @@ class MonthParent extends React.Component {
         console.log(newValue)
         //Make the start day and length the value of the selected month
         this.setState({
-          startDay: value[0],
-          length: value[1]
+          startDay: newValue[0],
+          length: newValue[1]
         })
     }
 
