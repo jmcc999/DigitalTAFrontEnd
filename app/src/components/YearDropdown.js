@@ -127,46 +127,6 @@ class YearDropdown extends React.Component {
             }
         })
 
-        //handles leap years
-        // for (let i = 22; i < 30; i++) {
-            
-        //     //If the year is a multiple of 4 and not a multiple of 100
-        //     //Multiple of 400 are leap years
-        //     if ((i % 4 === 0 && i % 100 !== 0) || i % 400 === 0) {
-
-        //         eval('this.setState({y' + i + ':{' +
-        //                 'name: 20' + i + ',' +
-        //                 'startDay: parseInt(this.state.y'+ (i-1) +'.startDay) % 7 + 1,' +
-        //                 'leapYear: 't'' +
-        //             '}' + 
-        //         '})')
-
-        //         eval('this.setState({y' + (i+1) + ':{' +
-        //             'name: 20' + (i+1) + ',' +
-        //             'startDay: (((this.state.y'+ (i) +'.startDay % 7) + 1) % 7) + 1,' +
-        //             'leapYear: 'f'' +
-        //             '}' + 
-        //         '})')
-
-
-        //         eval('this.setState({y' + (i+2) + ':{' +
-        //             'name: 20' + (i+2) + ',' +
-        //             'startDay: (this.state.y'+ (i+1) +'.startDay % 7) + 1,' +
-        //             'leapYear: 'f'' +
-        //             '}' + 
-        //         '})')
-
-        //         eval('this.setState({y' + (i+3) + ':{' +
-        //             'name: 20' + (i+3) + ',' +
-        //             'startDay: (this.state.y'+ (i+2) +'.startDay % 7) + 1,' +
-        //             'leapYear: 'f'' +
-        //             '}' + 
-        //         '})')
-                        
-        //     }
-           
-        // }
-
         //Set the inital state 
         this.setState({value: this.state.y22.startDay})
     }

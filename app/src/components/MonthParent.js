@@ -28,17 +28,20 @@ class MonthParent extends React.Component {
 
     //Call back function for the year dropdown
     callbackFooYear = (value) => {
-        console.log(value[2])
+
         //Make the start day for the month 
         this.setState({
           startDay: value[0],
           janStartDay: value[0],
           leapYear: value[2]
-
         })
+     
     }
 
+    
+
     render() {
+        console.log(this.state.janStartDay)
         return (
             <div>
             <Month startDay={this.state.startDay} length={this.state.length}/>
