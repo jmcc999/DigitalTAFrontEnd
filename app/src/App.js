@@ -17,7 +17,7 @@ import './App.css';
 //https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
 //Using Kirk Strobeck's answer as a guide for the drop down
 
-let baseURL = process.env.REACT_APP_BACKEND_URL
+// let baseURL = process.env.REACT_APP_BACKEND_URL
 
 class App extends Component {
   //add state
@@ -27,13 +27,13 @@ class App extends Component {
       activities: [],
     }
   }
-	// componentDidMount() {
-	// 	this.getActivities();
-	// }
+	componentDidMount() {
+		this.getActivities();
+	}
 
   loginUser = (e) => {
     e.preventDefault()
-    fetch(baseURL + '/users/login', {
+    fetch('http://localhost:3001/users/login', {
       method: 'POST',
       body: JSON.stringify({
         username: e.target.username.value,
@@ -44,18 +44,18 @@ class App extends Component {
       },
       credentials: "include"
     })
-    // .then(res => res.json())
-.then(res => res.text())
-.then(text => console.log(text))
-    .then(resJson => {
-      // console.log(resJson)
-      this.getActivities()
-    })
+    .then(res => res.json())
+// .then(res => res.text())
+// .then(text => console.log(text))
+  .then(resJson => {
+  console.log(resJson)
+  //  refresh the page
+})
   }
 
   register = (e) => {
     e.preventDefault()
-    fetch(baseURL + '/users/signup', {
+    fetch('http://localhost:3001/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: e.target.username.value,
@@ -72,7 +72,7 @@ class App extends Component {
   }
 
   getActivities = () => {
-    fetch(baseURL + '/activities', {
+    fetch('http://localhost:3001/activities', {
       credentials: 'include'
     })
       .then((res) => {
@@ -91,25 +91,25 @@ class App extends Component {
     })
   }
 
-  // handleAddActivity = (activity) => {
-  //   const copyActivity = [...this.state.activities]
-  //   copyActivity.unshift(activity)
-  //   this.setState({activity: copyActivity})
-  // }
+  handleAddActivity = (activity) => {
+    const copyActivity = [...this.state.activities]
+    copyActivity.unshift(activity)
+    this.setState({activity: copyActivity})
+  }
 
-  // handleDelete = (id) => {
-	// 	fetch(baseURL + '/activities/' + id, {
-	// 		method: 'DELETE',
-	// 		credentials: "include"
-	// 	}).then( res => {
-	// 		const copyActivity = [...this.state.activities];
-	// 		const findIndex = this.state.activities.findIndex(
-	// 				(activity) => activity._id === id
-	// 			);
-	// 		 copyActivity.splice(findIndex, 1);
-	// 		 this.setState({ activities: copyActivity });
-	// 	})
-	// }
+  handleDelete = (id) => {
+		fetch('http://localhost:3001/activities/' + id, {
+			method: 'DELETE',
+			credentials: "include"
+		}).then( res => {
+			const copyActivity = [...this.state.activities];
+			const findIndex = this.state.activities.findIndex(
+					(activity) => activity._id === id
+				);
+			 copyActivity.splice(findIndex, 1);
+			 this.setState({ activities: copyActivity });
+		})
+	}
   
   render() {
     return (
