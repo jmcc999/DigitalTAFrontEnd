@@ -37,13 +37,16 @@ class App extends Component {
       method: 'POST',
       body: JSON.stringify({
         username: e.target.username.value,
-        password: e.target.password.value
+        password: e.target.password.value,
       }),
       headers: {
         'Content-Type': 'application/json'
       },
       credentials: "include"
-    }).then(res => res.json())
+    })
+    // .then(res => res.json())
+.then(res => res.text())
+.then(text => console.log(text))
     .then(resJson => {
       console.log(resJson)
       this.getActivities()
